@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.App.CustomButtonOutlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="cornerRadius">5dp</item>
+    </style>
+    <style name="Widget.App.CustomButtonFiled" parent="Widget.Material3.Button.ElevatedButton">
+        <item name="cornerRadius">5dp</item>
+        <item name="elevation">5dp</item>
+    </style>
+
+    <style name="Widget.App.CustomActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">#00000000</item>
+    </style>
+    <style name="CategoryButton.Active" parent="Widget.App.CustomButtonFiled">
+        <item name="android:backgroundTint">@color/active_background_pink</item>
+        <item name="android:textColor">@color/main_pink</item>
+    </style>
+    <style name="CategoryButton.Inactive" parent="Widget.App.CustomButtonFiled">
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/font_gray</item>
+    </style>
+</resources>

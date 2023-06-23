@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/categoryButton"
+    style="@style/CategoryButton.Inactive"
+    android:layout_width="100dp"
+    android:layout_height="45dp"
+    android:fontFamily="@font/sfuidisplay_regular"
+    android:text="Пицца"
+    android:textSize="14sp"
+    android:textStyle="bold"
+    android:layout_margin="5dp">
+
+</Button>

@@ -10,7 +10,8 @@ import ru.sogya.work.testtask.R
 class HintsAdapter : RecyclerView.Adapter<HintsAdapter.ViewHolder>() {
     private val hintsList = arrayListOf(
         R.drawable.hint_one,
-        R.drawable.hint_two
+        R.drawable.hint_two,
+        R.drawable.hint_three
     )
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

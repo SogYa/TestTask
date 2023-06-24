@@ -6,53 +6,18 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import ru.sogya.work.testtask.R
-import ru.sogya.work.testtask.data.model.MenuItemData
+import ru.sogya.work.testtask.app.App
 import ru.sogya.work.testtask.domain.model.MenuItemDomain
 
 class MenuAdapter : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
-    private val menuList = arrayListOf<MenuItemDomain>(
-        MenuItemData(
-            name = "Баварские сосиски",
-            description = "Баварские колбаски, ветчина,пикантная пепперони, острая чоризо,томатный соус",
-            cost = 345,
-            imageUri = "lol"
-        ),
-        MenuItemData(
-            name = "Баварские сосиски",
-            description = "Баварские колбаски, ветчина,пикантная пепперони, острая чоризо,томатный соус",
-            cost = 345,
-            imageUri = "lol"
-        ),
-        MenuItemData(
-            name = "Баварские сосиски",
-            description = "Баварские колбаски, ветчина,пикантная пепперони, острая чоризо,томатный соус",
-            cost = 345,
-            imageUri = "lol"
-        ), MenuItemData(
-            name = "Баварские сосиски",
-            description = "Баварские колбаски, ветчина,пикантная пепперони, острая чоризо,томатный соус",
-            cost = 345,
-            imageUri = "lol"
-        ),
-        MenuItemData(
-            name = "Баварские сосиски",
-            description = "Баварские колбаски, ветчина,пикантная пепперони, острая чоризо,томатный соус",
-            cost = 345,
-            imageUri = "lol"
-        ),
-        MenuItemData(
-            name = "Баварские сосиски",
-            description = "Баварские колбаски, ветчина,пикантная пепперони, острая чоризо,томатный соус",
-            cost = 345,
-            imageUri = "lol"
-        )
-    )
+    private val menuList = arrayListOf<MenuItemDomain>()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val itemImageView: ImageView = itemView.findViewById(R.id.itemImageVIew)
         val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
-        val desctiptionTextView: TextView = itemView.findViewById(R.id.descTextView)
+        val descriptionTextView: TextView = itemView.findViewById(R.id.descTextView)
         val addButton: TextView = itemView.findViewById(R.id.addButton)
     }
 
@@ -70,8 +35,12 @@ class MenuAdapter : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val menuItem = menuList[position]
         holder.nameTextView.text = menuItem.name
-        holder.desctiptionTextView.text = menuItem.description
+        holder.descriptionTextView.text = menuItem.description
         holder.addButton.text = "от ${menuItem.cost} р."
+        Glide.with(App.getAppContext())
+            .load(menuItem.imageUri)
+            .placeholder(R.color.white)
+            .into(holder.itemImageView)
     }
 
     fun updateMenuList(newMenuList: List<MenuItemDomain>) {

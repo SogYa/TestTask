@@ -7,18 +7,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import ru.sogya.work.testtask.R
-import ru.sogya.work.testtask.data.model.CategoryItemData
 import ru.sogya.work.testtask.domain.model.CategoryItemDomain
 
 class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
-    private val categoryList = arrayListOf<CategoryItemDomain>(
-        CategoryItemData(id = 0, title = "Пицца"),
-        CategoryItemData(id = 0, title = "Пицца"),
-        CategoryItemData(id = 0, title = "Пицца"),
-        CategoryItemData(id = 0, title = "Пицца"),
-        CategoryItemData(id = 0, title = "Пицца"),
-        CategoryItemData(id = 0, title = "Пицца")
-    )
+    private val categoryList = arrayListOf<CategoryItemDomain>()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val categoryButton: Button = itemView.findViewById(R.id.categoryButton)
@@ -40,11 +32,18 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
         val categoryItem = categoryList[position]
         holder.apply {
             categoryButton.text = categoryItem.title
-            if (position == 0){
+            if (position == 0) {
                 categoryButton.setBackgroundColor(Color.parseColor("#33FD3A69"))
                 categoryButton.setTextColor(Color.parseColor("#FFFD3A69"))
             }
 
         }
+    }
+
+    fun updateCategoryList(newList: List<CategoryItemDomain>) {
+        categoryList.clear()
+        notifyItemChanged(1)
+        categoryList.addAll(newList)
+        notifyItemRangeChanged(0, categoryList.size)
     }
 }

@@ -6,9 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import dagger.hilt.android.AndroidEntryPoint
 import ru.sogya.work.testtask.R
 import ru.sogya.work.testtask.databinding.ActivityMainBinding
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val vm: MainVM by viewModels()
     private lateinit var binding: ActivityMainBinding

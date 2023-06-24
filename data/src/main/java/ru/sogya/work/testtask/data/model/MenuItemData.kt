@@ -7,4 +7,6 @@ data class MenuItemData(
     override val description: String,
     override val cost: Int,
     override val imageUri: String,
-): MenuItemDomain
+): MenuItemDomain{
+    constructor():this("","",0,"")
+}
